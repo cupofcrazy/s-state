@@ -8,7 +8,6 @@ import { Filter } from "@/components/ui/filter";
 import { useSearchParams } from "next/navigation";
 import { DEFAULT_TIME_RANGE } from "@/utils/constants";
 import { ArtistList } from "@/components/artists/artist-list";
-import { Suspense } from "react";
 
 export default function TopArtists() {
   const query = useSearchParams();
@@ -20,11 +19,9 @@ export default function TopArtists() {
   );
   
   return (
-    <Suspense fallback={<Spinner />}>
       <div className="min-h-screen md:w-screen md:flex md:items-center md:justify-center">
         { isLoading ? <Spinner /> : <ArtistList artists={data?.items ?? []} /> }
         <Filter route="/top-artists" />
       </div>
-    </Suspense>
   )
 }

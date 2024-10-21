@@ -1,11 +1,10 @@
 "use client"
 
 import { type Track } from "@/types/spotify"
-import React, { createContext, useState, useRef, useCallback, useEffect, Suspense } from "react"
+import React, { createContext, useState, useRef, useCallback, useEffect } from "react"
 import { Howl } from "howler"
 import { usePathname, useSearchParams } from "next/navigation"
 import { toast } from "sonner"
-import { Spinner } from "@/components/ui/spinner"
 
 type TrackAudioContextType = {
   currentTrack: Track | null
@@ -116,10 +115,8 @@ export const TrackAudioContextProvider = ({ children }: { children: React.ReactN
   }
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <TrackAudioContext.Provider value={value}>
-        {children}
-      </TrackAudioContext.Provider>
-    </Suspense>
+    <TrackAudioContext.Provider value={value}>
+      {children}
+    </TrackAudioContext.Provider>
   )
 }
