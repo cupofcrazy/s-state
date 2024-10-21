@@ -12,14 +12,14 @@ import { usePathname, useRouter } from "next/navigation"
 export const Navigation = () => {
   const links = [
     {
-      label: "Your Top 50 Artists",
-      href: "/top-artists",
-      color: "text-red-500/70",
-    },
-    {
       label: "Your Top 50 Tracks",
       href: "/top-tracks",
       color: "text-blue-500/70",
+    },
+    {
+      label: "Your Top 50 Artists",
+      href: "/top-artists",
+      color: "text-red-500/70",
     },
   ]
 
@@ -28,6 +28,7 @@ export const Navigation = () => {
   const router = useRouter()
   const pathname = usePathname()
   const [activeLink, setActiveLink] = useState(links.find((link) => link.href === pathname) || links[0])
+  
   useOnClickOutside(navigationRef, () => closeNavigation())
 
   const openNavigation = () => {
