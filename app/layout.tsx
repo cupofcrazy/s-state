@@ -4,8 +4,9 @@ import "@/styles/globals.css";
 import { Header } from "@/components/layout/header";
 import { SessionProvider } from "next-auth/react";
 import { TrackAudioContextProvider } from "@/contexts/AudioProvider";
-const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from 'sonner'
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Spotify Stats",
