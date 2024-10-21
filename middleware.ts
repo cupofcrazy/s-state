@@ -5,8 +5,9 @@ import { NextRequest, NextResponse } from "next/server"
 import { auth } from "./auth"
 
 export async function middleware(req: NextRequest) {
-  console.log("Middleware")
   const session = await auth()
+
+  // @ts-ignore
   const token = await getToken({ req, secret: process.env.AUTH_SECRET })
 
   if (!session?.user) {
@@ -14,6 +15,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/signin", req.url))
   }
   
+  // @ts-ignore
   if (token && token.expiresAt && token.expiresAt * 1000 < Date.now()) {
     // Token has expired, refresh it
     try {

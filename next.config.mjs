@@ -8,6 +8,9 @@ const nextConfig = {
       { hostname: "placehold.co" },
     ],
   },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;

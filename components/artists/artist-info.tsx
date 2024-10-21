@@ -1,19 +1,17 @@
-// import { useEffect } from "react"
 'use client'
 
-import { addTracksToPlaylist, createPlaylist, getArtistInfo, getArtistRecommendations } from "@/actions/spotify"
-import { Artist } from "@/types/spotify"
+import { useEffect, useState } from "react"
+import useSWR from "swr"
+import cn from 'classnames'
 import * as Dialog from '@radix-ui/react-dialog'
+import { toast } from "sonner"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
-import useSWR from "swr"
-import { TrackList } from "../track/track-list"
-import { TrackCardList } from "../track/track-card-list"
-import { useEffect, useState } from "react"
-import { useAudio } from "@/hooks/useAudio"
-import { toast } from "sonner"
-import cn from 'classnames'
 import { useRouter } from "next/navigation"
+import { addTracksToPlaylist, createPlaylist, getArtistRecommendations } from "@/actions/spotify"
+import { useAudio } from "@/hooks/useAudio"
+import { Artist } from "@/types/spotify"
+import { TrackCardList } from "../track/track-card-list"
 import { XMarkIcon } from "@heroicons/react/24/solid"
 
 
@@ -22,9 +20,6 @@ type ArtistInfoProps = {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
 }
-
-// const MotionOverlay = motion(Dialog.Overlay)
-// const MotionContent = motion(Dialog.Content)
 
 
 export const ArtistInfo = ({ artist, isOpen, onOpenChange }: ArtistInfoProps) => {
@@ -41,7 +36,7 @@ export const ArtistInfo = ({ artist, isOpen, onOpenChange }: ArtistInfoProps) =>
     if (isOpen || isPlaying) {
       pauseTrack()
     }
-  }, [isOpen])
+  }, [isOpen, isPlaying, pauseTrack])
 
   const handleCreatePlaylist = async () => {
     if (!recs?.tracks) {

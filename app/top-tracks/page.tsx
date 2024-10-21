@@ -1,16 +1,12 @@
 'use client'
 
 import useSWR from "swr";
-import { Landing } from "@/components/layout/landing";
 import { TrackList } from "@/components/track/track-list";
 import { fetcher } from "@/utils/fetcher";
-import { useSession } from "next-auth/react";
 import { Spinner } from "@/components/ui/spinner";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 import { Filter } from "@/components/ui/filter"
 import { DEFAULT_TIME_RANGE, TIME_RANGES } from "@/utils/constants";
-import { TimeRange } from "@/types/spotify";
 import NotFound from "../not-found";
 
 export default function Home() {

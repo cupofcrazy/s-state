@@ -1,23 +1,15 @@
 'use client'
 
-import { Howl } from 'howler'
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { type Track } from "@/types/spotify"
-import { motion, animate, useMotionValue, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid"
-import { usePathname, useSearchParams } from "next/navigation"
-import { SmoothScroll } from "./slider"
 import { useAudio } from "@/hooks/useAudio"
 import { useMediaQuery } from "usehooks-ts"
-import { TrackCardList } from './track-card-list'
 import ScrollContainer from '../ui/scroll'
 import cn from 'classnames'
 
-
-const convertToHex = (r: number, g: number, b: number) => {
-  return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
-}
 
 const MotionPlayIcon = motion(PlayIcon)
 const MotionPauseIcon = motion(PauseIcon)

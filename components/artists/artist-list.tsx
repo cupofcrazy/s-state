@@ -1,11 +1,9 @@
 'use client'
 
-import Image from "next/image"
-import { SmoothScroll } from "../slider"
+  import Image from "next/image"
 import { Artist } from "@/types/spotify"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ArtistInfo } from "./artist-info"
-import { motion,useAnimate } from "framer-motion"
 import ScrollContainer from "../ui/scroll"
 import { useMediaQuery } from "usehooks-ts"
 
@@ -51,7 +49,8 @@ export const ArtistList = ({ artists }: { artists: Artist[] }) => {
           {artists.map((artist) => (
             <button key={artist.id} className="card w-[150px] flex-1 mr-16 first:ml-[25vw] last:mr-[25vw] transition-all duration-300 scale-[0.9] touch-none select-none"
             style={{
-              'WebkitUserDrag': 'none',
+              // @ts-ignore
+              WebkitUserDrag: 'none',
             }}
             onClick={() => {
               setSelectedArtist(artist)

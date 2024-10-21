@@ -43,6 +43,13 @@ const ScrollContainer: React.FC<ScrollContainerProps> = ({
     }
   }, []);
 
+  const updateProgress = useCallback((progress: number) => {
+    setProgress(progress);
+    if (onProgressChange) {
+      onProgressChange(progress);
+    }
+  }, [onProgressChange]);
+  
   useEffect(() => {
     updateMaxTranslate();
 
@@ -56,14 +63,8 @@ const ScrollContainer: React.FC<ScrollContainerProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [updateMaxTranslate, children]);
+  }, [updateMaxTranslate, children, updateProgress, maxTranslate, translateX, targetTranslateX]);
 
-  const updateProgress = useCallback((progress: number) => {
-    setProgress(progress);
-    if (onProgressChange) {
-      onProgressChange(progress);
-    }
-  }, [onProgressChange]);
 
   const animateScroll = useCallback(() => {
     setTranslateX(prevTranslateX => {
