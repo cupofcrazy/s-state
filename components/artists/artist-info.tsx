@@ -74,7 +74,7 @@ export const ArtistInfo = ({ artist, isOpen, onOpenChange }: ArtistInfoProps) =>
             <Dialog.Content>
               <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ ease: 'easeInOut', duration: .5 }} className="fixed top-0 bottom-0 right-0 w-full bg-white z-[9999] p-4 border-l overflow-y-auto md:w-2/3 lg:w-1/2">
                 <div className="flex md:items-start flex-col items-center md:flex-row gap-2">
-                  <Image className="max-w-[120px] max-h-[120px] rounded-full" src={artist.images[0]?.url ?? "/images/placeholder.png"} alt={artist.name} width={120} height={120} />
+                  <img className="max-w-[120px] max-h-[120px] rounded-full" src={artist.images[0]?.url ?? "/images/placeholder.png"} alt={artist.name} width={120} height={120} />
                   <div className="flex flex-col gap-0.5">
                     <Dialog.Title className="text-xl font-semibold text-center md:text-left">{artist.name}</Dialog.Title>
                     <Dialog.Description className="text-sm text-neutral-500 text-center md:text-left">
@@ -101,7 +101,7 @@ export const ArtistInfo = ({ artist, isOpen, onOpenChange }: ArtistInfoProps) =>
                     <XMarkIcon className="w-4 h-4" />
                   </button>
                 </Dialog.Close>
-                { <button className={cn('sticky bottom-2 left-[50%] translate-x-[-50%] bg-neutral-800 text-white p-4 rounded-full z-[9999]', {
+                { <button className={cn('sticky bottom-2 left-[50%] translate-x-[-50%] bg-neutral-800 text-white px-4 py-2 rounded-full z-[9999]', {
                   'animate-pulse cursor-not-allowed': recsLoading,
                   'opacity-50 cursor-not-allowed': isCreatingPlaylist,
                 })} disabled={isCreatingPlaylist || recsLoading} onClick={handleCreatePlaylist}>

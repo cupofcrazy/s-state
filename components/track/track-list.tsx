@@ -76,7 +76,7 @@ export const TrackList = ({ tracks }: { tracks: Track[] }) => {
             //   backgroundColor: currentTrack.colors ? convertToHex(currentTrack.colors.DarkVibrant.rgb[0], currentTrack.colors.DarkVibrant.rgb[1], currentTrack.colors.DarkVibrant.rgb[2]) : '#000'
             // }}
           >
-            <Image className="rounded-lg w-16 h-16 object-cover border border-white/30" src={currentTrack?.album.images[2].url} alt={currentTrack?.name} width={64} height={64} />
+            <img className="rounded-lg w-16 h-16 object-cover border border-white/30" src={currentTrack?.album.images[2].url} alt={currentTrack?.name} width={64} height={64} />
             <div className="flex flex-[2] flex-col items-start justify-between h-max">
               <div>
                 <p className="text-md text-white font-medium text-ellipsis">{currentTrack?.name}</p>
@@ -167,15 +167,15 @@ export const TrackVinylCard = ({ track, index }: { track: Track, index: number }
       </motion.div>}
 
       <div className="track-vinyl-card-inner">
-        <Image draggable={false} src="/images/vinyl.png" alt="vinyl" className={cn("w-full h-full transition-all duration-300 z-[1]", {
+        <img draggable={false} src="/images/vinyl.png" alt="vinyl" className={cn("w-full h-full transition-all duration-300 z-[1]", {
           'animate-spin-slow': isCurrentTrack(track)
         })} width={200} height={200} />
         <div className="relative z-[5] overflow-hidden rounded-lg">
-          <Image draggable={false} src={track.album.images[0].url} alt={track.name} className={cn('border object-cover w-full h-full md:w-[200px] md:h-[200px] transition-all duration-300', {
+          <img draggable={false} src={track.album.images[0].url} alt={track.name} className={cn('border object-cover w-full h-full md:w-[200px] md:h-[200px] transition-all duration-300', {
             'translate-x-[-100%]': isCurrentTrack(track)
           })} width={240} height={240} />
         </div>
-        <Image draggable={false} src={track.album.images[0].url} alt={track.name} className={cn('border object-cover w-[40%] h-[40%] transition-all duration-300 mx-auto z-[1] rounded-full', {
+        <img draggable={false} src={track.album.images[0].url} alt={track.name} className={cn('border object-cover w-[40%] h-[40%] transition-all duration-300 mx-auto z-[1] rounded-full', {
           'animate-spin-slow': isCurrentTrack(track)
         })} width={240} height={240} />
         <motion.button className="track-vinyl-card-play-button bg-black/30 backdrop-blur-sm z-10 w-16 h-16" onClick={() => handleTrackClick(track)}>

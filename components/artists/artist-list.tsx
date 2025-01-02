@@ -25,7 +25,7 @@ export const ArtistList = ({ artists }: { artists: Artist[] }) => {
             }}
           >
           <div className="overflow-hidden">
-            <Image className="w-full rounded-full object-cover" src={artist.images[0]?.url ?? ""} alt={artist.name ?? ""} width={150} height={150} />
+            <img className="w-full rounded-full object-cover" src={artist.images[0]?.url ?? ""} alt={artist.name ?? ""} width={150} height={150} />
           </div>
 
           <p className="text-sm mt-2">{artist.name}</p>
@@ -58,7 +58,7 @@ export const ArtistList = ({ artists }: { artists: Artist[] }) => {
             }}
           >
             <div className="overflow-hidden">
-              <Image draggable={false} className="w-full rounded-full object-cover" src={artist?.images[0]?.url ?? "/images/placeholder.png"} alt={artist?.name ?? ""} width={150} height={150} />
+              <img draggable={false} className="w-full rounded-full object-cover" src={artist?.images[0]?.url ?? "/images/placeholder.png"} alt={artist?.name ?? ""} width={150} height={150} />
             </div>
 
             <p className="text-sm mt-2">{artist.name}</p>

@@ -35,7 +35,7 @@ export const TrackCard = ({ track, index }: TrackCardProps) => {
           "bg-neutral-800 text-white": !isActive
         })}>{index + 1}</div>
         <div className="relative w-[72px] h-[72px] rounded-xl overflow-hidden border border-black/10">
-          <Image className="w-full h-full object-cover" src={track.album.images[0].url} alt={track.name} width={72} height={72} />
+          <img className="w-full h-full object-cover" src={track.album.images[0].url} alt={track.name} width={72} height={72} />
         </div>
         <div className="flex flex-col gap-0.5 w-[65%]">
           <p className={cn("text-sm", isActive && "text-white")}>{track.name}</p>
