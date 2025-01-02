@@ -7,7 +7,7 @@ export const Landing = async () => {
       <div className="flex flex-col gap-4 items-center">
         <div className="animate-rotate">
           <div className="w-[150px] h-[150px] bg-black/10 overflow-hidden rounded-3xl animate-translate-y">
-            <Image className="w-full h-full" src="/images/snail-mail.png" alt="logo" width={150} height={150} />
+            <img className="w-full h-full" src="/images/snail-mail.png" alt="logo" width={150} height={150} />
           </div>
         </div>
         <h1 className="text-2xl font-bold">See your Spotify Stats</h1>

@@ -56,10 +56,10 @@ export default function ActiveTrack({ currentTrack }: { currentTrack: Track }) {
                   className="w-6 h-6 text-white absolute" />
             </motion.button>
             <div className={`relative flex items-center justify-center w-full h-full transition-all duration-300 ${currentTrack} ? '' : 'group-hover:translate-x-[0px]'} ${currentTrack} ? 'animate-spin-slow' : ''}`}>
-              <Image src={currentTrack.album.images[0].url} alt={currentTrack.name} className={`absolute z-[2] rounded-full shadow-md`} width={72} height={72} />
-              <Image src="/images/vinyl.png" className={`absolute z-[1] w-fit h-fit transition-all duration-300 ${currentTrack} ? '' : ''}`} alt={currentTrack.name} width={200} height={200} />
+              <img src={currentTrack.album.images[0].url} alt={currentTrack.name} className={`absolute z-[2] rounded-full shadow-md`} />
+              <img src="/images/vinyl.png" className={`absolute z-[1] w-fit h-fit transition-all duration-300 ${currentTrack} ? '' : ''}`} alt={currentTrack.name} width={200} height={200} />
             </div>
-            <Image src={currentTrack.album.images[0].url} alt={currentTrack.name} className={`object-cover rounded-md absolute z-[4] ${currentTrack}? 'translate-x-[-100%]' : 'group-hover:translate-x-[-30%]'} transition-all duration-300`} width={240} height={240} />
+            <img src={currentTrack.album.images[0].url} alt={currentTrack.name} className={`object-cover rounded-md absolute z-[4] ${currentTrack}? 'translate-x-[-100%]' : 'group-hover:translate-x-[-30%]'} transition-all duration-300`} width={240} height={240} />
           </motion.div>
           
         </div>
